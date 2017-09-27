@@ -1,0 +1,44 @@
+{
+	"extends": "tslint:recommended",
+	"rules": {
+		"new-parens": true,
+		"no-arg": true,
+		"no-bitwise": true,
+		"no-conditional-assignment": true,
+		"no-consecutive-blank-lines": false,
+		"no-console": {
+			"options": [
+				"debug",
+				"info",
+				"log",
+				"time",
+				"timeEnd",
+				"trace"
+			]
+		},
+		"indent": [
+			true,
+			"tabs",
+			2
+		],
+		"quotemark": false,
+		"no-trailing-whitespace": false,
+		"max-line-length": false,
+		"trailing-comma": false,
+		"whitespace": [
+			true,
+			"check-decl",
+			"check-operator",
+			"check-module",
+			"check-separator",
+			"check-rest-spread",
+			"check-type",
+			"check-typecast",
+			"check-type-operator",
+			"check-preblock"
+		],
+		"object-literal-sort-keys": false,
+		"jsdoc-format": false
+	},
+	"jsRules": {}
+}

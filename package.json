@@ -1,0 +1,50 @@
+{
+	"name": "react-registry",
+	"version": "0.1.0",
+	"description": "A library for registering, retrieving, and rendering React components.",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"prepublish": "npm run build",
+		"lint": "node node_modules/tslint/bin/tslint -c tslint.json -t codeFrame 'src/**/*.{ts,tsx}'",
+		"lint:fix": "node node_modules/tslint/bin/tslint -c tslint.json -t codeFrame 'src/**/*.{ts,tsx}' --fix",
+		"test": "jest",
+		"test:cover": "npm run test -- --coverage ",
+		"clean-dist": "npm run remove-dist",
+		"remove-dist": "rimraf ./dist/*",
+		"prebuild": "npm run lint && npm run remove-dist",
+		"build": "node ./node_modules/typescript/bin/tsc --outDir ./dist"
+	},
+	"author": "Joe Esposito <joe@devnet.io>",
+	"license": "MIT",
+	"dependencies": {
+		"lodash": "4.17.4",
+		"prop-types": "15.5.10",
+		"react": "15.0.2"
+	},
+	"devDependencies": {
+		"@types/jest": "20.0.8",
+		"@types/lodash": "4.14.74",
+		"@types/prop-types": "15.5.1",
+		"@types/react": "16.0.5",
+		"jest": "21.1.0",
+		"jest-cli": "21.1.0",
+		"jsdoc": "^3.5.5",
+		"rimraf": "2.6.1",
+		"ts-jest": "21.0.1",
+		"tslint": "5.7.0",
+		"typescript": "2.5.2"
+	},
+	"jest": {
+		"moduleFileExtensions": [
+			"ts",
+			"tsx",
+			"js",
+			"jsx"
+		],
+		"transform": {
+			"\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+		},
+		"testRegex": "spec.*\\.(ts|tsx|js|jsx)$"
+	}
+}
