@@ -58,7 +58,7 @@ class MyApp extends React.Component {
             <div>
                 // Retrieve component from the registry and create React element
 
-                <Registered id="title" title="Hello Registry" />
+                <Registered id="title" title="Hello Registry">
                     <div>A child</div>
                 </Registered>
 
