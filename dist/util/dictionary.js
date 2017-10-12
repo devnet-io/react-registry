@@ -9,7 +9,7 @@ var dictionary = {
     },
     duplicate: "A component with this key and no conditions has already been added to this registry. Ignoring. To register as an override, specify conditions. See: https://www.devnet.io/libs/react-registry/docs#register",
     component: {
-        invalid: "Attempting to render an invalid react. Ensure a function / class was registered instead of an object"
+        invalid: "Attempting to render an invalid React component. Ensure a function / class was registered instead of an object"
     }
 };
 exports.default = dictionary;

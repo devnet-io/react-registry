@@ -3,7 +3,7 @@ import IComponentRegistry from './IComponentRegistry';
 import Registry from './Registry';
 
 /**
- * Core functionality of the react-registry library. Use though {@link Registry} instead of directly.
+ * Core functionality of the react-registry library. Use through {@link Registry} instead of directly.
  * For full documentation: {@link https://www.devnet.io/libs/react-registry/docs}
  * 
  * @author Joe Esposito <joe@devnet.io>

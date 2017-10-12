@@ -14,24 +14,16 @@ declare var process: any;
 export default class Logger {
 
 	public static getMessage(key: string): string {
-		const fields: string[] = key.split(".");
-
-		if(dictionary.hasOwnProperty(fields[0])) {
-			if(fields.length > 1) {
-				return dictionary[fields[0]][Logger.getMessage(fields.splice(0, 1).join("."))];
-			} else {
-				return dictionary[fields[0]];
-			}
-		}
+		const message: string = lodash.get(dictionary, key, "Invalid error key");
+		return "react-registry - " + message;
 	}
 
 	public static throw(key: string): void {
-		const message: string = lodash.get(dictionary, key, "Invalid error key");
-		throw Error(message);
+		throw Error(Logger.getMessage(key));
 	}
 
 	public static error(key: string): void {
-		const message: string = lodash.get(dictionary, key, "Invalid error key");
+		const message: string = "Error: " + Logger.getMessage(key);
 
 		if(message && window.console) {
 			console.error(message);
@@ -40,8 +32,8 @@ export default class Logger {
 
 	public static warn(key: string): void {
 		// Only show warnings when not in production mode
-		if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
-			const message: string = "Warning: " + lodash.get(dictionary, key, "Invalid error key");
+		if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+			const message: string = "Warning: " + Logger.getMessage(key);
 			
 			if(message && window.console) {
 				console.warn(message);

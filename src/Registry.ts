@@ -16,25 +16,25 @@ export default class Registry {
 	/**
      * Validates and registers an object or function using supplied {@link Arguments}
      * 
-     * For usage: {@link https://www.devnet.io/libs/react-registry/docs#register}
+     * For usage: {@link https://www.devnet.io/libs/react-registry/doc/#/registering}
      * 
      * @param component the object or function to be registered
      * @param params options, parsed to {@link Arguments}
      */
-	public static register(component: object, params: string | object): void {
-		if ((typeof component !== 'object' && typeof component !== 'function') || (typeof params !== 'object' && typeof params !== 'string')) {
-			Logger.error("arguments.register");
-		} else {
-			const args: Arguments = Arguments.parseArgs(params);
-
+	public static register(component: any, params: string | object): void {
+		if ((typeof component === 'object' || typeof component === 'function') && (typeof params === 'undefined' ||  typeof params !== 'object' || typeof params !== 'string')) {
+			const args: Arguments = Arguments.parseComponentArgs(component, params); 
+			
 			ComponentRegistry.getInstance().register(component, args.id, args.conditions, args.registry);
+		} else {
+			Logger.error("arguments.register");	
 		}
 	}
 
 	/**
      * Retrieves an object or function from the registry using supplied {@link Arguments}
      * 
-     * For usage: {@link https://www.devnet.io/libs/react-registry/docs#retrieve}
+     * For usage: {@link https://www.devnet.io/libs/react-registry/docs/#/retrieving}
      * 
      * @param params options, parsed to {@link Arguments}
      */
@@ -48,7 +48,7 @@ export default class Registry {
      * Retrieves an object or function from the registry using supplied {@link Arguments} 
      * and creates a React element with it. The item retrieved must be a function.
      * 
-     * For usage: {@link https://www.devnet.io/libs/react-registry/docs#render}
+     * For usage: {@link https://www.devnet.io/libs/react-registry/docs/#/retrieving}
      * 
      * @param params options, parsed to {@link Arguments}
      * @param props properties for the React component

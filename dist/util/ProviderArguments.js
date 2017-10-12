@@ -16,6 +16,7 @@ var ProviderArguments = (function () {
             return new ProviderArguments(arg1.conditions, arg1.registry);
         }
         Logger_1.default.error("arguments.provider");
+        return new ProviderArguments(undefined, undefined);
     };
     ProviderArguments.prototype.isValid = function () {
         return ProviderArguments.isValid(this);

@@ -2,7 +2,7 @@ import Logger from './Logger';
 
 /**
  * Parses and validates the common arguments object passed to {@link Provider} and {@link ProviderComponent}
- * For full documentation: {@link https://www.devnet.io/libs/react-registry/docs#provider}
+ * For full documentation: {@link https://www.devnet.io/libs/react-registry/docs/#/providers}
  * 
  * @author Joe Esposito <joe@devnet.io>
  */
@@ -22,6 +22,8 @@ export default class ProviderArguments {
 		}
 
 		Logger.error("arguments.provider"); // Non essential, log error instead of throwing
+
+		return new ProviderArguments();
 	}
 
 	public conditions: object | undefined;

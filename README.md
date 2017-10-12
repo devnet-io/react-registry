@@ -1,4 +1,4 @@
-# React-Registry
+# React Registry
 
 react-registry is a library for registering, retrieving, and rendering React components.
 
@@ -33,7 +33,7 @@ class TitleComponent extends React.Component {
     render() {
         return (
             <div>
-                <h1>{this.props.title}</h1>
+                <h1>{this.props.text}</h1>
                 <p>{this.props.children}</p>
             <div>
         )
@@ -43,54 +43,54 @@ class TitleComponent extends React.Component {
 Registry.register(TitleComponent, "title");
 ```
 
-*Note: to use this syntax without requiring the component to be imported later, the bundler may need to be [configured appropriately](https://www.devnet.io/libs/react-registry/docs#bundlers).*
+*Note: to use this syntax without requiring the component to be imported later, the bundler may need to be [configured appropriately](https://www.devnet.io/libs/react-registry/docs/bundlers).*
 
-### Retrieving and rendering a component
+### Retrieving and Rendering a Component
 
-*JSX syntax*
+***JSX Syntax***
 
 ```jsx
-import { Registered } form 'react-registry';
+import { Registered } from 'react-registry';
 
 class MyApp extends React.Component {
     render() {
         return (
             <div>
-                // Retrieve component from the registry and create React element
+                {/* Retrieve component from the registry and create React element */}
 
-                <Registered id="title" title="Hello Registry">
+                <Registered id="title" text="Hello Registry">
                     <div>A child</div>
                 </Registered>
 
-                /* Above is equivalent adding the component as if it was imported normally
+                {/* Above is equivalent adding the component as if it was imported normally
                  *
-                 * <TitleComponent title="Hello Registry">
+                 * <TitleComponent text="Hello Registry">
                  *     <div>A child</div>
                  * </TitleComponent>
-                 */
+                 */}
             </div>
         )
     }
 }
 ```
 
-*JS syntax*
+***JS Syntax***
 
 ```jsx
-import { Registry } form 'react-registry';
+import { Registry } from 'react-registry';
 
 class MyApp extends React.Component {
     render() {
         return (
             <div>
-                // Retrieve component from the registry and create React element
+                {/* Retrieve component from the registry and create React element  */}
 
-                {Registry.render("title", {title: "Hello Registry"})} 
+                {Registry.render("title", {text: "Hello Registry"})} 
                 
-                /* Above is equivalent adding the component as if it was imported normally
+                {/* Above is equivalent adding the component as if it was imported normally
                  *
-                 * <TitleComponent title="Hello Registry" />
-                 */
+                 * <TitleComponent text="Hello Registry" />
+                 */}
             </div>
         )
     }

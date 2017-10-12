@@ -1,0 +1,1 @@
+node_modules/.bin/typedoc --theme markdown --out docs/tsdoc src --excludeExternals --mode file --exclude "**/lib/**/*.ts"

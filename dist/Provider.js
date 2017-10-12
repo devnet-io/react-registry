@@ -3,11 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Registry_1 = require("./Registry");
 var Arguments_1 = require("./util/Arguments");
 var ProviderArguments_1 = require("./util/ProviderArguments");
-var RegistryProvider = (function () {
-    function RegistryProvider(params) {
+var Provider = (function () {
+    function Provider(params) {
         this.arguments = ProviderArguments_1.default.parseArgs(params);
     }
-    RegistryProvider.getArgs = function (provider, local) {
+    Provider.getArgs = function (provider, local) {
         if (!local.conditions && provider.conditions) {
             local.conditions = provider.conditions;
         }
@@ -16,15 +16,15 @@ var RegistryProvider = (function () {
         }
         return local;
     };
-    RegistryProvider.prototype.get = function (params) {
+    Provider.prototype.get = function (params) {
         var local = Arguments_1.default.parseArgs(params);
-        return Registry_1.default.get(RegistryProvider.getArgs(this.arguments, local));
+        return Registry_1.default.get(Provider.getArgs(this.arguments, local));
     };
-    RegistryProvider.prototype.render = function (params, props) {
+    Provider.prototype.render = function (params, props) {
         var local = Arguments_1.default.parseArgs(params);
-        return Registry_1.default.render(RegistryProvider.getArgs(this.arguments, local), props);
+        return Registry_1.default.render(Provider.getArgs(this.arguments, local), props);
     };
-    return RegistryProvider;
+    return Provider;
 }());
-exports.default = RegistryProvider;
+exports.default = Provider;
 //# sourceMappingURL=Provider.js.map

@@ -5,12 +5,12 @@ import Arguments from './util/Arguments';
 import ProviderArguments from './util/ProviderArguments';
 
 /**
- * Main interface of the react-registry package.
- * For full documentation: {@link https://www.devnet.io/libs/react-registry/docs#provider}
+ * Facilitates retrieving multiple components with the same options
+ * For full documentation: {@link https://www.devnet.io/libs/react-registry/docs/#/providers}
  * 
  * @author Joe Esposito <joe@devnet.io>
  */
-export default class RegistryProvider {
+export default class Provider {
 
 	/**
 	 * Combines arguments held by the provider and those passes into to {@link get()} and {@link render()}
@@ -51,7 +51,7 @@ export default class RegistryProvider {
      */
 	public get(params: string | object): object | undefined {
 		const local: Arguments = Arguments.parseArgs(params);
-		return Registry.get(RegistryProvider.getArgs(this.arguments, local));
+		return Registry.get(Provider.getArgs(this.arguments, local));
 	}
 
 	/**
@@ -66,6 +66,6 @@ export default class RegistryProvider {
      */
 	public render(params: string | object, props?: object): object | undefined {
 		const local: Arguments = Arguments.parseArgs(params);
-		return Registry.render(RegistryProvider.getArgs(this.arguments, local), props);
+		return Registry.render(Provider.getArgs(this.arguments, local), props);
 	}
 }

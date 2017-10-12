@@ -18,5 +18,5 @@ export default class ProviderComponent extends React.Component<IProviderProps, a
     getChildContext(): {
         registryProviderArgs: ProviderArguments;
     };
-    render(): JSX.Element;
+    render(): React.ReactElement<any>;
 }

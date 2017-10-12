@@ -1,6 +1,6 @@
 import Arguments from './util/Arguments';
 import ProviderArguments from './util/ProviderArguments';
-export default class RegistryProvider {
+export default class Provider {
     static getArgs(provider: ProviderArguments, local: Arguments): Arguments;
     private arguments;
     constructor(params: object);

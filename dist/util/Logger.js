@@ -6,29 +6,21 @@ var Logger = (function () {
     function Logger() {
     }
     Logger.getMessage = function (key) {
-        var fields = key.split(".");
-        if (dictionary_1.default.hasOwnProperty(fields[0])) {
-            if (fields.length > 1) {
-                return dictionary_1.default[fields[0]][Logger.getMessage(fields.splice(0, 1).join("."))];
-            }
-            else {
-                return dictionary_1.default[fields[0]];
-            }
-        }
+        var message = lodash.get(dictionary_1.default, key, "Invalid error key");
+        return "react-registry - " + message;
     };
     Logger.throw = function (key) {
-        var message = lodash.get(dictionary_1.default, key, "Invalid error key");
-        throw Error(message);
+        throw Error(Logger.getMessage(key));
     };
     Logger.error = function (key) {
-        var message = lodash.get(dictionary_1.default, key, "Invalid error key");
+        var message = "Error: " + Logger.getMessage(key);
         if (message && window.console) {
             console.error(message);
         }
     };
     Logger.warn = function (key) {
-        if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
-            var message = "Warning: " + lodash.get(dictionary_1.default, key, "Invalid error key");
+        if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+            var message = "Warning: " + Logger.getMessage(key);
             if (message && window.console) {
                 console.warn(message);
             }

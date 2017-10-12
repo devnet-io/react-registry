@@ -22,7 +22,7 @@ var ProviderComponent = (function (_super) {
         return { registryProviderArgs: ProviderArguments_1.default.parseArgs({ conditions: this.props.conditions, registry: this.props.registry }) };
     };
     ProviderComponent.prototype.render = function () {
-        return (React.createElement("div", null, this.props.children));
+        return React.Children.only(this.props.children);
     };
     ProviderComponent.propTypes = {
         conditions: PropTypes.object,

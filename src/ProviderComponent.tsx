@@ -32,11 +32,8 @@ export default class ProviderComponent extends React.Component<IProviderProps, a
 		return { registryProviderArgs: ProviderArguments.parseArgs({ conditions: this.props.conditions, registry: this.props.registry }) };
 	}
 
+	// Only one child supported, to update when React 16 is move available
 	public render() {
-		return (
-			<div>
-				{this.props.children}
-			</div>
-		);
+		return React.Children.only(this.props.children);
 	}
 }

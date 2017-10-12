@@ -8,29 +8,19 @@ import ProviderArguments from './util/ProviderArguments';
 
 /**
  * React component for retrieving other components form the registry
- * For full documentation: {@link https://www.devnet.io/libs/react-registry/docs}
+ * For full documentation: {@link https://www.devnet.io/libs/react-registry/docs/#/retrieving}
  * 
  * @author Joe Esposito <joe@devnet.io>
  */
 
-export interface IRegisteredProps {
-	id: string;
-	conditions?: object;
-	registry?: string;
-}
-
-export default class Registered extends React.Component<IRegisteredProps, any> {
-	public static propTypes = {
-		id: PropTypes.string.isRequired,
-		conditions: PropTypes.object,
-		registry: PropTypes.string
-	};
+// Type of props any to allow passing of many props into the registered component
+export default class Registered extends React.Component<any, any> {
 
 	public static contextTypes = {
 		registryProviderArgs: PropTypes.object
 	};
 
-	constructor(props: IRegisteredProps) {
+	constructor(props: any) {
 		super(props);
 	}
 
@@ -45,10 +35,6 @@ export default class Registered extends React.Component<IRegisteredProps, any> {
 			args = Provider.getArgs(providerArgs, args);
 		}
 
-		return (
-			<div>
-				{Registry.render(args, { ...this.props })}
-			</div>
-		);
+		return Registry.render(args, { ...this.props }) as JSX.Element;
 	}
 }

@@ -1,20 +1,10 @@
 /// <reference types="react" />
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-export interface IRegisteredProps {
-    id: string;
-    conditions?: object;
-    registry?: string;
-}
-export default class Registered extends React.Component<IRegisteredProps, any> {
-    static propTypes: {
-        id: PropTypes.Validator<any>;
-        conditions: PropTypes.Requireable<any>;
-        registry: PropTypes.Requireable<any>;
-    };
+export default class Registered extends React.Component<any, any> {
     static contextTypes: {
         registryProviderArgs: PropTypes.Requireable<any>;
     };
-    constructor(props: IRegisteredProps);
+    constructor(props: any);
     render(): JSX.Element;
 }

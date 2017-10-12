@@ -35,12 +35,7 @@ var Registered = (function (_super) {
             var providerArgs = ProviderArguments_1.default.parseArgs(this.context.registryProviderArgs);
             args = Provider_1.default.getArgs(providerArgs, args);
         }
-        return (React.createElement("div", null, Registry_1.default.render(args, __assign({}, this.props))));
-    };
-    Registered.propTypes = {
-        id: PropTypes.string.isRequired,
-        conditions: PropTypes.object,
-        registry: PropTypes.string
+        return Registry_1.default.render(args, __assign({}, this.props));
     };
     Registered.contextTypes = {
         registryProviderArgs: PropTypes.object

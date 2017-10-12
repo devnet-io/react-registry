@@ -1,5 +1,5 @@
-import Registry from '../src/Registry';
 import * as React from 'react';
+import Registry from '../src/Registry';
 
 describe("ReactRegistry", () => {
 	it("registered (by id) and fetched (by id) components identical", () => {
@@ -87,11 +87,11 @@ describe("ReactRegistry", () => {
 
 	it("registered (by id) and rendered (by id) components matching", () => {
 		
-		interface TestProps {
-			title: string,
+		interface ITestProps {
+			title: string;
 		}
 
-		const testComponent: React.SFC<TestProps> = (props) => {
+		const testComponent: React.SFC<ITestProps> = (props) => {
 			return (<div>{this.props.title}</div>);
 		};
 

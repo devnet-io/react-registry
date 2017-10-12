@@ -8,12 +8,12 @@ var Registry = (function () {
     function Registry() {
     }
     Registry.register = function (component, params) {
-        if ((typeof component !== 'object' && typeof component !== 'function') || (typeof params !== 'object' && typeof params !== 'string')) {
-            Logger_1.default.error("arguments.register");
+        if ((typeof component === 'object' || typeof component === 'function') && (typeof params === 'undefined' || typeof params !== 'object' || typeof params !== 'string')) {
+            var args = Arguments_1.default.parseComponentArgs(component, params);
+            ComponentRegistry_1.default.getInstance().register(component, args.id, args.conditions, args.registry);
         }
         else {
-            var args = Arguments_1.default.parseArgs(params);
-            ComponentRegistry_1.default.getInstance().register(component, args.id, args.conditions, args.registry);
+            Logger_1.default.error("arguments.register");
         }
     };
     Registry.get = function (params) {
