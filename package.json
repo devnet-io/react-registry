@@ -10,6 +10,7 @@
 		"lint:fix": "node node_modules/tslint/bin/tslint -c tslint.json -t codeFrame 'src/**/*.{ts,tsx}' --fix",
 		"test": "jest",
 		"test:cover": "npm run test -- --coverage ",
+		"test:cover:CI": "npm run test:cover && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
 		"clean-dist": "npm run remove-dist",
 		"remove-dist": "rimraf ./dist/*",
 		"prebuild": "npm run lint && npm run remove-dist",
@@ -27,14 +28,15 @@
 		"@types/lodash": "4.14.74",
 		"@types/prop-types": "15.5.1",
 		"@types/react": "16.0.5",
+		"coveralls": "3.0.0",
 		"jest": "21.1.0",
 		"jest-cli": "21.1.0",
-		"jsdoc": "^3.5.5",
+		"jsdoc": "3.5.5",
 		"rimraf": "2.6.1",
 		"ts-jest": "21.0.1",
 		"tslint": "5.7.0",
 		"typedoc": "^0.9.0",
-		"typedoc-plugin-markdown": "^1.0.11",
+		"typedoc-plugin-markdown": "1.0.11",
 		"typescript": "2.5.2"
 	},
 	"jest": {
@@ -49,6 +51,10 @@
 		},
 		"testRegex": "spec.*\\.(ts|tsx|js|jsx)$"
 	},
+	"bugs": {
+		"url": "https://github.com/devnet-io/typescript-graphql/issues"
+	},
+	"homepage": "https://devnet.io/libs/react-registry",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/devnet-io/react-registry.git"
