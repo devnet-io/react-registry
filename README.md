@@ -1,4 +1,6 @@
 # React Registry
+[![npm](https://img.shields.io/npm/v/react-registry.svg)](https://www.npmjs.com/package/react-registry)
+[![Build Status](https://img.shields.io/travis/devnet-io/react-registry.svg)](https://travis-ci.org/devnet-io/react-registry)
 
 react-registry is a library for registering, retrieving, and rendering React components.
 
