@@ -1,6 +1,9 @@
 # React Registry
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/devnet-io/react-registry/blob/master/LICENSE) 
 [![npm](https://img.shields.io/npm/v/react-registry.svg)](https://www.npmjs.com/package/react-registry)
 [![Build Status](https://img.shields.io/travis/devnet-io/react-registry.svg)](https://travis-ci.org/devnet-io/react-registry)
+[![Coveralls github](https://img.shields.io/coveralls/github/devnet-io/react-registry.svg)]()
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/devnet-io/react-registry/pulls)
 
 react-registry is a library for registering, retrieving, and rendering React components.
 
