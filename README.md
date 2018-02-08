@@ -14,7 +14,7 @@ Dynamically provide overrides for components based on custom conditions
 
 react-registry also supports many other features such as multiple registries for organizing components, registry providers and wrappers for advanced retrieval options, and TypeScript interfaces to simplify registering components.
 
-[View full documentation](https://www.devnet.io/libs/react-registry/docs)
+[View full documentation](https://www.devnet.io/libs/react-registry)
 
 ## Getting started
 
@@ -89,7 +89,7 @@ class MyApp extends React.Component {
                 
                 {/* Above is equivalent adding the component as if it was imported normally
                  *
-                 * <TitleComponent text="Hello Registry" />
+                 * React.createElement(TitleComponent, {text: "Hello Registry"});
                  */}
             </div>
         )
