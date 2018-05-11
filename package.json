@@ -1,7 +1,7 @@
 {
 	"name": "react-registry",
-	"version": "0.1.1",
-	"description": "A library for registering, retrieving, and rendering React components.",
+	"version": "0.5.0",
+	"description": "A library for registering, retrieving, and creating React components.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"scripts": {
@@ -19,24 +19,28 @@
 	"author": "Joe Esposito <joe@devnet.io>",
 	"license": "MIT",
 	"dependencies": {
-		"lodash": "4.17.4",
-		"prop-types": "15.5.10",
-		"react": "15.0.2"
+		"lodash": "4.17.10"
+	},
+	"peerDependencies": {
+		"prop-types": "^15.0.2",
+		"react": "^15.0.0 || ^16.0.0"
 	},
 	"devDependencies": {
 		"@types/jest": "20.0.8",
 		"@types/lodash": "4.14.74",
 		"@types/prop-types": "15.5.1",
 		"@types/react": "16.0.5",
-		"coveralls": "3.0.0",
+		"react": "15.0.2",
+		"prop-types": "15.5.10",
+		"coveralls": "^3.0.1",
 		"jest": "21.1.0",
 		"jest-cli": "21.1.0",
-		"jsdoc": "3.5.5",
+		"jsdoc": "^3.5.5",
 		"rimraf": "2.6.1",
 		"ts-jest": "21.0.1",
 		"tslint": "5.7.0",
-		"typedoc": "^0.9.0",
-		"typedoc-plugin-markdown": "1.0.11",
+		"typedoc": "^0.11.1",
+		"typedoc-plugin-markdown": "^1.0.11",
 		"typescript": "2.5.2"
 	},
 	"jest": {

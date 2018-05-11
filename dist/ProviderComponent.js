@@ -10,6 +10,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+var lodash = require("lodash");
 var PropTypes = require("prop-types");
 var React = require("react");
 var ProviderArguments_1 = require("./util/ProviderArguments");
@@ -19,7 +20,20 @@ var ProviderComponent = (function (_super) {
         return _super.call(this, props) || this;
     }
     ProviderComponent.prototype.getChildContext = function () {
-        return { registryProviderArgs: ProviderArguments_1.default.parseArgs({ conditions: this.props.conditions, registry: this.props.registry }) };
+        var args = ProviderArguments_1.ProviderArguments.parseArgs({ conditions: this.props.conditions, registry: this.props.registry });
+        if (this.context.registryProviderArgs) {
+            var ancestorArguments = ProviderArguments_1.ProviderArguments.parseArgs(this.context.registryProviderArgs);
+            if (typeof args.conditions !== "undefined") {
+                ancestorArguments.conditions = lodash.assign(ancestorArguments.conditions, args.conditions);
+            }
+            if (typeof args.registry !== "undefined") {
+                ancestorArguments.registry = args.registry;
+            }
+            return { registryProviderArgs: ancestorArguments };
+        }
+        else {
+            return { registryProviderArgs: args };
+        }
     };
     ProviderComponent.prototype.render = function () {
         return React.Children.only(this.props.children);
@@ -27,6 +41,9 @@ var ProviderComponent = (function (_super) {
     ProviderComponent.propTypes = {
         conditions: PropTypes.object,
         registry: PropTypes.string
+    };
+    ProviderComponent.contextTypes = {
+        registryProviderArgs: PropTypes.object
     };
     ProviderComponent.childContextTypes = {
         registryProviderArgs: PropTypes.object

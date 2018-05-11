@@ -100,13 +100,36 @@ describe("ReactRegistry", () => {
 		expect(Registry.render("test10id")).toEqual(React.createElement(testComponent));
 	});
 
+	it("Creating an incorrect type of entry returns undefined", () => {
+		const testComponent: object = { a: "a" };
+
+		Registry.register(testComponent, "test11id");
+
+		expect(Registry.render("test11id")).toBe(undefined);
+	});
+
+	it("registered (by id) and rendered (by id) components matching", () => {
+		
+		interface ITestProps {
+			title: string;
+		}
+
+		const testComponent: React.SFC<ITestProps> = (props) => {
+			return (<div>{this.props.title}</div>);
+		};
+
+		Registry.register(testComponent, "test12id");
+
+		expect(Registry.render("test12id")).toEqual(React.createElement(testComponent));
+	});
+
 	it("registering a component with the same id and no conditions produces warnings", () => {
 		const spy = jest.spyOn(global.console, 'warn');
 		
 		const testComponent: object = { a: "a" };
 		
-		Registry.register(testComponent, "test11id");
-		Registry.register(testComponent, "test11id");
+		Registry.register(testComponent, "test13id");
+		Registry.register(testComponent, "test13id");
 		
 		expect(spy).toHaveBeenCalledTimes(1);
 	});

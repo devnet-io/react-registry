@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import Registry from './Registry';
-import Arguments from './util/Arguments';
-import ProviderArguments from './util/ProviderArguments';
+import { Arguments, IArguments } from './util/Arguments';
+import { IProviderArguments, ProviderArguments } from './util/ProviderArguments';
 
 /**
  * Facilitates retrieving multiple components with the same options
@@ -19,7 +19,7 @@ export default class Provider {
 	 * @param provider provider's options {@link ProviderArguments}
 	 * @param local options {@link Arguments}
 	 */
-	public static getArgs(provider: ProviderArguments, local: Arguments): Arguments {
+	public static getArgs(provider: IProviderArguments, local: IArguments): IArguments {
 
 		// If a provider with conditions is present and there are no local conditions, use the provider's conditions
 		if (!local.conditions && provider.conditions) {
@@ -34,28 +34,27 @@ export default class Provider {
 		return local;
 	}
 
-	private arguments: ProviderArguments;
+	private arguments: IProviderArguments;
 
-	constructor(params: object) {
+	constructor(params: IProviderArguments) {
 		this.arguments = ProviderArguments.parseArgs(params);
 	}
 
-
 	/**
-     * Retrieves an object or function from the registry using supplied {@link Arguments} 
+     * Retrieves an object or function from the registry using supplied {@link IArguments} 
      * and {@link ProviderArguments} from the provider instance.
      * 
      * For usage: {@link https://www.devnet.io/libs/react-registry/docs#provider}
      * 
      * @param params options, parsed to {@link Arguments}
      */
-	public get(params: string | object): object | undefined {
-		const local: Arguments = Arguments.parseArgs(params);
+	public get(params: string | IArguments): object | undefined {
+		const local: IArguments = Arguments.parseArgs(params);
 		return Registry.get(Provider.getArgs(this.arguments, local));
 	}
 
 	/**
-	 * Retrieves an object or function from the registry using supplied {@link Arguments} 
+	 * Retrieves an object or function from the registry using supplied {@link IArguments} 
      * and {@link ProviderArguments} from the provider instance, then creates a 
      * React element with it. The item retrieved must be a function.
      * 
@@ -64,8 +63,24 @@ export default class Provider {
      * @param params options, parsed to {@link Arguments}
      * @param props properties for the React component
      */
-	public render(params: string | object, props?: object): object | undefined {
-		const local: Arguments = Arguments.parseArgs(params);
+	public render(params: string | IArguments, props?: object): object | undefined {
+		const local: IArguments = Arguments.parseArgs(params);
 		return Registry.render(Provider.getArgs(this.arguments, local), props);
+	}
+
+	/**
+	 * Alias for render()
+	 * 
+	 * Retrieves an object or function from the registry using supplied {@link IArguments} 
+     * and {@link ProviderArguments} from the provider instance, then creates a 
+     * React element with it. The item retrieved must be a function.
+     * 
+     * For usage: {@link https://www.devnet.io/libs/react-registry/docs#render}
+     * 
+     * @param params options, parsed to {@link Arguments}
+     * @param props properties for the React component
+     */
+	public createElement(params: string | IArguments, props?: object): object | undefined {
+		return this.render(params, props);
 	}
 }

@@ -1,4 +1,4 @@
-import * as lodash from 'lodash';
+import { get } from 'lodash';
 
 import dictionary from './dictionary';
 
@@ -14,7 +14,7 @@ declare var process: any;
 export default class Logger {
 
 	public static getMessage(key: string): string {
-		const message: string = lodash.get(dictionary, key, "Invalid error key");
+		const message: string = get(dictionary, key, "Invalid error key");
 		return "react-registry - " + message;
 	}
 

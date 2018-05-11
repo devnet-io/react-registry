@@ -1,4 +1,4 @@
-import Arguments from '../src/util/Arguments';
+import { Arguments } from '../src/util/Arguments';
 
 describe("Arguments", () => {
 	it("parsing undefined and empty arguments logs error", () => {

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var lodash = require("lodash");
+var lodash_1 = require("lodash");
 var Sets = require("../util/set");
 var Logger_1 = require("../util/Logger");
 var ComponentEntry_1 = require("./ComponentEntry");
@@ -9,7 +9,7 @@ var RegistryEntry = (function () {
         this.components = new Array();
     }
     RegistryEntry.prototype.findDefault = function () {
-        return lodash.find(this.components, function (ce) { return ce.conditions === undefined; });
+        return lodash_1.find(this.components, function (ce) { return ce.conditions === undefined; });
     };
     RegistryEntry.prototype.getDefault = function () {
         var c = this.findDefault();
@@ -20,7 +20,7 @@ var RegistryEntry = (function () {
             return this.getDefault();
         }
         else {
-            var cce = lodash.find(this.components.slice().reverse(), function (ce) { return (Sets.isSubset(conditions, ce.conditions)); });
+            var cce = lodash_1.find(this.components.slice().reverse(), function (ce) { return (Sets.isSubset(conditions, ce.conditions)); });
             return cce ? cce.component : (!mustMatch ? this.getDefault() : undefined);
         }
     };

@@ -8,8 +8,8 @@ The retrieve and render functions support the common [Arguments](arguments).
 
 ___
 
-## Rendering Components
-Calling the the render function is the equivalent of retrieving or getting a component then calling *React.createElement()* on it. When using the JSX syntax, props and children are passed to the retrieved component. When using the JS syntax, only props are passed to the retrieved component.
+## Creating / Rendering Components
+Calling the the createElement() function is the equivalent of retrieving or getting a component then calling *React.createElement()* on it. When using the JSX syntax, props and children are passed to the retrieved component. When using the JS syntax, only props are passed to the retrieved component.
 
 ### Required Imports
 
@@ -32,7 +32,7 @@ import { Registry } from 'react-registry';
 ***JS***
 ```js
 // Optionally passing a react prop to the retrieved component
-Registry.render("myId", {reactProp: "propValue"});
+Registry.createElement("myId", {reactProp: "propValue"});
 ```
 
 ### With custom registry
@@ -43,7 +43,7 @@ Registry.render("myId", {reactProp: "propValue"});
 ```
 ***JS***
 ```js
-Registry.render({id: "myId", registry: "custom"}, {myReactProp: "propValue"});
+Registry.createElement({id: "myId", registry: "custom"}, {myReactProp: "propValue"});
 ```
 
 ### With custom conditions
@@ -54,7 +54,7 @@ Registry.render({id: "myId", registry: "custom"}, {myReactProp: "propValue"});
 ```
 ***JS***
 ```js
-Registry.render({id: "myId", conditions: {foo: "bar"}}, {myReactProp: "propValue"});
+Registry.createElement({id: "myId", conditions: {foo: "bar"}}, {myReactProp: "propValue"});
 ```
 
 ### With custom conditions and registry

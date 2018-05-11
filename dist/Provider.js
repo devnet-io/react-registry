@@ -5,7 +5,7 @@ var Arguments_1 = require("./util/Arguments");
 var ProviderArguments_1 = require("./util/ProviderArguments");
 var Provider = (function () {
     function Provider(params) {
-        this.arguments = ProviderArguments_1.default.parseArgs(params);
+        this.arguments = ProviderArguments_1.ProviderArguments.parseArgs(params);
     }
     Provider.getArgs = function (provider, local) {
         if (!local.conditions && provider.conditions) {
@@ -17,12 +17,15 @@ var Provider = (function () {
         return local;
     };
     Provider.prototype.get = function (params) {
-        var local = Arguments_1.default.parseArgs(params);
+        var local = Arguments_1.Arguments.parseArgs(params);
         return Registry_1.default.get(Provider.getArgs(this.arguments, local));
     };
     Provider.prototype.render = function (params, props) {
-        var local = Arguments_1.default.parseArgs(params);
+        var local = Arguments_1.Arguments.parseArgs(params);
         return Registry_1.default.render(Provider.getArgs(this.arguments, local), props);
+    };
+    Provider.prototype.createElement = function (params, props) {
+        return this.render(params, props);
     };
     return Provider;
 }());

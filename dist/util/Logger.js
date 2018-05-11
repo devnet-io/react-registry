@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var lodash = require("lodash");
+var lodash_1 = require("lodash");
 var dictionary_1 = require("./dictionary");
 var Logger = (function () {
     function Logger() {
     }
     Logger.getMessage = function (key) {
-        var message = lodash.get(dictionary_1.default, key, "Invalid error key");
+        var message = lodash_1.get(dictionary_1.default, key, "Invalid error key");
         return "react-registry - " + message;
     };
     Logger.throw = function (key) {

@@ -64,3 +64,6 @@ typings/
 
 #coverage
 coverage
+
+#dist folder
+dist

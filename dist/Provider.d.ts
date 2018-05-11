@@ -1,9 +1,10 @@
-import Arguments from './util/Arguments';
-import ProviderArguments from './util/ProviderArguments';
+import { IArguments } from './util/Arguments';
+import { IProviderArguments } from './util/ProviderArguments';
 export default class Provider {
-    static getArgs(provider: ProviderArguments, local: Arguments): Arguments;
+    static getArgs(provider: IProviderArguments, local: IArguments): IArguments;
     private arguments;
-    constructor(params: object);
-    get(params: string | object): object | undefined;
-    render(params: string | object, props?: object): object | undefined;
+    constructor(params: IProviderArguments);
+    get(params: string | IArguments): object | undefined;
+    render(params: string | IArguments, props?: object): object | undefined;
+    createElement(params: string | IArguments, props?: object): object | undefined;
 }

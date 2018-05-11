@@ -5,7 +5,7 @@
 [![Coveralls github](https://img.shields.io/coveralls/github/devnet-io/react-registry.svg)](https://coveralls.io/github/devnet-io/react-registry)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/devnet-io/react-registry/pulls)
 
-react-registry is a library for registering, retrieving, and rendering React components.
+react-registry is a library for registering, retrieving, and creating React components.
 
 ## Why use react-registry?
 
@@ -90,7 +90,7 @@ class MyApp extends React.Component {
             <div>
                 {/* Retrieve component from the registry and create React element  */}
 
-                {Registry.render("title", {text: "Hello Registry"})} 
+                {Registry.createElement("title", {text: "Hello Registry"})} 
                 
                 {/* Above is equivalent adding the component as if it was imported normally
                  *

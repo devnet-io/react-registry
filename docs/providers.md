@@ -51,7 +51,7 @@ provider.get("myId");
 provider.get({id: "myId", registry: "notCustom"});
 
 // Get component and create React element with a property
-provider.render("myId", {myReactProp: "propValue"}) 
+provider.createElement("myId", {myReactProp: "propValue"}) 
 ```
 
 ### Providing conditions
@@ -79,7 +79,7 @@ provider.get("myId");
 provider.get({id: "myId", conditions: {alpha: "omega"}}); 
 
 // Get component and create React element with a property
-provider.render("myId", {myReactProp: "propValue"});
+provider.createElement("myId", {myReactProp: "propValue"});
 ```
 
 ### Providing conditions and registry name
@@ -114,5 +114,5 @@ provider.get({id: "myId1", conditions: {alpha: "omega"}});
 provider.get({id: "myId2", registry: "notCustom"});
 
 // Get component with provider's conditions and registry name and create React element with a property
-provider.render("myId3", {myReactProp: "propValue"});
+provider.createElement("myId3", {myReactProp: "propValue"});
 ```

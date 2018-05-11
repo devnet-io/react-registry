@@ -6,7 +6,13 @@ import Logger from './Logger';
  * 
  * @author Joe Esposito <joe@devnet.io>
  */
-export default class ProviderArguments {
+
+export interface IProviderArguments {
+ 	conditions?: object;
+	registry?: string;
+}
+
+export class ProviderArguments implements IProviderArguments {
 
 	public static isValid(args: any): boolean {
 		return typeof args === 'object' && (
@@ -26,8 +32,8 @@ export default class ProviderArguments {
 		return new ProviderArguments();
 	}
 
-	public conditions: object | undefined;
-	public registry: string | undefined;
+	public conditions?: object;
+	public registry?: string;
 
 	constructor(conditions?: object, name?: string) {
 		this.conditions = conditions;

@@ -30,9 +30,9 @@ var Registered = (function (_super) {
         return _super.call(this, props) || this;
     }
     Registered.prototype.render = function () {
-        var args = Arguments_1.default.parseArgs(__assign({}, this.props));
+        var args = Arguments_1.Arguments.parseArgs(__assign({}, this.props));
         if (this.context.registryProviderArgs) {
-            var providerArgs = ProviderArguments_1.default.parseArgs(this.context.registryProviderArgs);
+            var providerArgs = ProviderArguments_1.ProviderArguments.parseArgs(this.context.registryProviderArgs);
             args = Provider_1.default.getArgs(providerArgs, args);
         }
         return Registry_1.default.render(args, __assign({}, this.props));

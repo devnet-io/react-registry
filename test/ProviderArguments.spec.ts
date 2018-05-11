@@ -1,4 +1,4 @@
-import ProviderArguments from '../src/util/ProviderArguments';
+import { ProviderArguments } from '../src/util/ProviderArguments';
 
 describe("ProviderArguments", () => {
 	it("parsing undefined and empty arguments throws error", () => {

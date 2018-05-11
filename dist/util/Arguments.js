@@ -57,5 +57,5 @@ var Arguments = (function () {
     };
     return Arguments;
 }());
-exports.default = Arguments;
+exports.Arguments = Arguments;
 //# sourceMappingURL=Arguments.js.map

@@ -1,3 +1,4 @@
+import { IArguments } from './Arguments';
 import Logger from './Logger';
 
 /**
@@ -6,7 +7,14 @@ import Logger from './Logger';
  * 
  * @author Joe Esposito <joe@devnet.io>
  */
-export default class Arguments {
+
+export interface IArguments {
+	id: string;
+	conditions?: object;
+	registry?: string;
+}
+
+export class Arguments implements IArguments {
 
 	public static isValid(args: any): boolean {
 		return typeof args === 'string' || (typeof args === 'object' && (
@@ -32,7 +40,7 @@ export default class Arguments {
 		}		
 	}
 
-	public static parseComponentArgs(component: any, params: string | object): Arguments {
+	public static parseComponentArgs(component: any, params: string | object): IArguments {
 		const componentArgs: any = {};
 		
 		// Arugmnets provided by component functions
@@ -55,7 +63,7 @@ export default class Arguments {
 		}
 
 		// Parse arguments but don't throw error for invalid arguments yet
-		const paramArgs: Arguments = Arguments.parseArgs(params, false);
+		const paramArgs: IArguments = Arguments.parseArgs(params, false);
 
 		// Arguments provied to register function. Override those provided by component.
 		if(typeof paramArgs !== 'undefined') {
@@ -80,8 +88,8 @@ export default class Arguments {
 	}
 
 	public id: string;
-	public conditions: object | undefined;
-	public registry: string | undefined;
+	public conditions?: object;
+	public registry?: string;
 
 	constructor(id: string, conditions?: object, registry?: string) {
 		this.id = id;

@@ -1,4 +1,4 @@
-import * as lodash from 'lodash';
+import { find } from 'lodash';
 import * as Sets from '../util/set';
 
 import Logger from '../util/Logger';
@@ -22,7 +22,7 @@ export default class RegistryEntry {
 	 * Only one default component will be present.
 	 */
 	public findDefault(): ComponentEntry | undefined { // use lodash for find to avoid the need for es6 pollyfill
-		return lodash.find(this.components, (ce) => ce.conditions === undefined);
+		return find(this.components, (ce) => ce.conditions === undefined);
 	}
 
 	public getDefault(): object | undefined {
@@ -40,7 +40,7 @@ export default class RegistryEntry {
 			// Search for components matching the provided conditions. The conditions on
 			// the component must be a subset of the provided conditions or equal to them.
 
-			const cce = lodash.find(this.components.slice().reverse(), (ce) => ( // use lodash for find to avoid the need for es6 pollyfill
+			const cce = find(this.components.slice().reverse(), (ce) => ( // use lodash for find to avoid the need for es6 pollyfill
 				Sets.isSubset(conditions, ce.conditions)
 			));
 
