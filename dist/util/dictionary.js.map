@@ -1,1 +1,0 @@
-{"version":3,"file":"dictionary.js","sourceRoot":"","sources":["../../src/util/dictionary.ts"],"names":[],"mappings":";;AAMA,IAAM,UAAU,GAAQ;IACvB,SAAS,EAAE;QACV,MAAM,EAAE,kIAAkI;QAC1I,QAAQ,EAAE,yIAAyI;QACnJ,QAAQ,EAAE,oIAAoI;QAC9I,gBAAgB,EAAE,kOAAkO;KACpP;IACD,SAAS,EAAE,kNAAkN;IAC7N,SAAS,EAAE;QACV,OAAO,EAAE,gHAAgH;KACzH;CACD,CAAC;AAEF,kBAAe,UAAU,CAAC"}
