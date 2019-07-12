@@ -52,7 +52,35 @@ Registry.register(TitleComponent, "title");
 
 ### Retrieving and Rendering a Component
 
-***JSX Syntax***
+***JS Syntax***
+
+```jsx
+import { Registry } from 'react-registry';
+
+class MyApp extends React.Component {
+    render() {
+        
+        // Retrieve component from the registry
+        const TitleComponent = Registry.get("title");
+        
+        // or
+        
+        // Retrieve the component and create an element with it.
+        const titleComponent = Registry.createElement("title", {text: "Hello Registry"});
+    
+        return (
+            <div>
+                <TitleComponent text="HelloRegistry" />
+                
+                { /* or */ }
+               
+                {titleComponent}
+            </div>
+        )
+    }
+}
+```
+***Component Syntax***
 
 ```jsx
 import { Registered } from 'react-registry';
@@ -72,29 +100,6 @@ class MyApp extends React.Component {
                  * <TitleComponent text="Hello Registry">
                  *     <div>A child</div>
                  * </TitleComponent>
-                 */}
-            </div>
-        )
-    }
-}
-```
-
-***JS Syntax***
-
-```jsx
-import { Registry } from 'react-registry';
-
-class MyApp extends React.Component {
-    render() {
-        return (
-            <div>
-                {/* Retrieve component from the registry and create React element  */}
-
-                {Registry.createElement("title", {text: "Hello Registry"})} 
-                
-                {/* Above is equivalent adding the component as if it was imported normally
-                 *
-                 * React.createElement(TitleComponent, {text: "Hello Registry"});
                  */}
             </div>
         )
